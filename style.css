@@ -43,15 +43,16 @@ body {
   height: 50svh;
   background-color: var(--medium-color);
   padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: repeat(1fr, 100);
+  align-items: end;
   gap: 1px;
   box-shadow: 5px 5px 0 0 var(--dark-color);
 }
 
 .bar {
-  flex-grow: 1;
+  grid-row: 1;
+  justify-self: stretch;
   background-color: var(--dark-color);
 }
 /* .bar::before {

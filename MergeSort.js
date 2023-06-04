@@ -3,9 +3,9 @@ export function mergeSort(array) {
     return array;
   } else {
     const halfLength = Math.floor(array.length / 2);
-    const firstHalf = array.slice(0, halfLength);
-    const secondHalf = array.slice(halfLength);
-    return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+    const leftHalf = array.slice(0, halfLength);
+    const rightHalf = array.slice(halfLength);
+    return merge(mergeSort(leftHalf), mergeSort(rightHalf));
   }
 }
 
