@@ -89,4 +89,10 @@ body {
     flex-grow: 1;
     width: 100%;
   }
+  .button {
+    background-color: var(--light-color);
+  }
+  .button:active {
+    background-color: var(--medium-color);
+  }
 }
