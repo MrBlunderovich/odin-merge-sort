@@ -55,8 +55,3 @@ body {
   justify-self: stretch;
   background-color: var(--dark-color);
 }
-/* .bar::before {
-  content: attr(data-value);
-  color: var(--light-color);
-  font-size: 0.5rem;
-} */

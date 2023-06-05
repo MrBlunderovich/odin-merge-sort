@@ -13,17 +13,16 @@ function getRandomArray(length = 100) {
     newNode.classList.add("bar");
     newNode.dataset.value = newValue;
     newNode.style.height = `${newValue}%`;
-    newNode.style.gridColumn = i;
     newElement.node = newNode;
     array.push(newElement);
   }
   return array;
 }
 
-function renderBars() {
+function renderBars(array) {
   container.innerHTML = "";
   const fragment = document.createDocumentFragment();
-  arrayToSort.forEach((item) => {
+  array.forEach((item) => {
     fragment.appendChild(item.node);
   });
 
@@ -31,5 +30,13 @@ function renderBars() {
 }
 
 window.onload = () => {
-  renderBars();
+  renderBars(arrayToSort);
 };
+
+document.addEventListener("keydown", handleKeyDown);
+async function handleKeyDown(event) {
+  if (event.code === "Space") {
+    console.log("merge!");
+    console.log(await mergeSort(arrayToSort));
+  }
+}
