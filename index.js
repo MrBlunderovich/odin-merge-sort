@@ -54,6 +54,7 @@ function handleClick(event) {
   const target = event.target;
   if (target.matches(".run")) {
     runSorting();
+    target.blur();
   } else if (target.matches(".reset")) {
     location.reload();
   }

@@ -27,7 +27,7 @@ body {
 .header,
 .footer {
   width: 100%;
-  font-size: 150%;
+  font-size: min(150%, 6vw);
   background-color: var(--dark-color);
   color: var(--light-color);
   padding: 0.5em 1em;
@@ -62,15 +62,26 @@ body {
 }
 
 .button {
-  padding: 0.5rem 3rem;
+  padding-block: 0.5rem;
+  padding-inline: max(2rem, 10vw);
   font-size: 1.5rem;
   border: 0;
   background-color: var(--medium-color);
   cursor: pointer;
+  outline: none;
 }
 .button:hover {
   transform: scale(1.1);
 }
 .button:active {
   transform: translateY(5%);
+  outline: none;
+}
+
+@media (width <600px), (height <600px) {
+  .main {
+    box-shadow: none;
+    flex-grow: 1;
+    width: 100%;
+  }
 }
