@@ -70,12 +70,17 @@ body {
   cursor: pointer;
   outline: none;
 }
-.button:hover {
-  transform: scale(1.1);
+
+@media (hover: hover) {
+  .button:hover {
+    transform: scale(1.1);
+  }
 }
+
 .button:active {
   transform: translateY(5%);
   outline: none;
+  background-color: var(--light-color);
 }
 
 @media (width <600px), (height <600px) {
