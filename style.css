@@ -14,20 +14,18 @@
 }
 
 body {
-  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   font-family: "Montserrat", sans-serif;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: var(--light-color);
 }
 
 .header,
 .footer {
-  position: fixed;
-  top: 0;
   width: 100%;
   font-size: 150%;
   background-color: var(--dark-color);
@@ -58,8 +56,6 @@ body {
 }
 
 .footer {
-  top: unset;
-  bottom: 0;
   display: flex;
   justify-content: space-evenly;
   padding-block: 1.5rem;
