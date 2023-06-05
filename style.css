@@ -24,7 +24,8 @@ body {
   background-color: var(--light-color);
 }
 
-.header {
+.header,
+.footer {
   position: fixed;
   top: 0;
   width: 100%;
@@ -54,4 +55,26 @@ body {
   grid-row: 1;
   justify-self: stretch;
   background-color: var(--dark-color);
+}
+
+.footer {
+  top: unset;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  padding-block: 1.5rem;
+}
+
+.button {
+  padding: 0.5rem 3rem;
+  font-size: 1.5rem;
+  border: 0;
+  background-color: var(--medium-color);
+  cursor: pointer;
+}
+.button:hover {
+  transform: scale(1.1);
+}
+.button:active {
+  transform: translateY(5%);
 }

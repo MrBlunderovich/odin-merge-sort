@@ -3,6 +3,8 @@ import { mergeSort } from "./MergeSort.js";
 let arrayToSort = getRandomArray();
 const container = document.querySelector(".main");
 
+let inProgress = false;
+
 function getRandomArray(length = 100) {
   const array = [];
   for (let i = 0; i < length; i++) {
@@ -33,10 +35,26 @@ window.onload = () => {
   renderBars(arrayToSort);
 };
 
-document.addEventListener("keydown", handleKeyDown);
-async function handleKeyDown(event) {
+document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
-    console.log("merge!");
+    runSorting();
+  }
+});
+
+async function runSorting() {
+  if (!inProgress) {
+    inProgress = true;
     console.log(await mergeSort(arrayToSort));
+    inProgress = false;
+  }
+}
+
+document.addEventListener("click", handleClick);
+function handleClick(event) {
+  const target = event.target;
+  if (target.matches(".run")) {
+    runSorting();
+  } else if (target.matches(".reset")) {
+    location.reload();
   }
 }
