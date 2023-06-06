@@ -14,6 +14,8 @@ async function merge(arr1, arr2, resultAcc = []) {
   const result = [...resultAcc];
   const array1 = [...arr1];
   const array2 = [...arr2];
+  const bothArrays = [...arr1, ...arr2];
+  switchBarsHighlighting(bothArrays, true);
 
   if (array1.length === 0 && array2.length === 0) {
     const delay = new Promise((resolve) => {
@@ -23,6 +25,7 @@ async function merge(arr1, arr2, resultAcc = []) {
     });
     const delayedResult = await delay;
     reorderBars(delayedResult);
+    switchBarsHighlighting(delayedResult, false);
     return delayedResult;
   } else if (array1.length === 0) {
     result.push(array2.shift());
@@ -45,5 +48,11 @@ function reorderBars(result) {
   const nodes = bars.map((bar) => bar.node);
   nodes.forEach((node) => {
     main.insertBefore(node, nextSibling);
+  });
+}
+
+function switchBarsHighlighting(elementsInProgress, doHighlight) {
+  elementsInProgress.forEach((element) => {
+    element.node.style.opacity = doHighlight ? "0.72" : 1;
   });
 }
