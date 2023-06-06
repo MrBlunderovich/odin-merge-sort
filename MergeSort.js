@@ -1,3 +1,6 @@
+const DELAY_TIMEOUT = 200;
+const HIGHLIGHT_OPACITY = 0.65;
+
 export async function mergeSort(array) {
   if (array.length <= 1) {
     return array;
@@ -21,7 +24,7 @@ async function merge(arr1, arr2, resultAcc = []) {
     const delay = new Promise((resolve) => {
       setTimeout(() => {
         resolve(result);
-      }, 100);
+      }, DELAY_TIMEOUT);
     });
     const delayedResult = await delay;
     reorderBars(delayedResult);
@@ -53,6 +56,6 @@ function reorderBars(result) {
 
 function switchBarsHighlighting(elementsInProgress, doHighlight) {
   elementsInProgress.forEach((element) => {
-    element.node.style.opacity = doHighlight ? "0.72" : 1;
+    element.node.style.opacity = doHighlight ? HIGHLIGHT_OPACITY : 1;
   });
 }
